@@ -1,24 +1,52 @@
-# README
+# <For you>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+<Instagram＋Blog型　プレゼント紹介特化型サイト>
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+<...>
 
-* Configuration
+### テーマを選んだ背景
 
-* Database creation
+<プレゼントを選ぶという行為は、個人のセンスの差が非常に強く出ていると感じる。
+選び方にも様々あり、お店で直接選ぶ方もいるが、事前にネット上で目途をつける方も多いのではないかと思う。
+その際に、情報を得るためにWEB上で検索、ヒットするものとして、Aniy　tamp等のサイトに辿り着いたことがある方も多いと思う。
+それらの内容を拝見、活用するが、現状問題点として感じた点は、サイト製作所側で、一方的なブログ投稿スタイルでの紹介となっているように感じる。
+その為、業界内で有名であろう似通ったものが、別サイトでも紹介されるケースが多いと感じた。
+またBlog投稿型の紹介スタイルでは、投稿段階での先端の商品となる為、流行の先端をつかめず、
+検索側にもデメリットが多いと感じた。一般のユーザーなどが発信することにより、
+より一層多種多様なプレゼントの情報を見つけて頂きたい。
+また、シチュエーションに関しても、大きく分けられた、
+イベント毎に紹介しているサイトが多いと思うが、
+ユーザー毎に似通ったエピソードを見つけて頂き、参考に出来るサイトがあればよいと感じた。>
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+<全世代の男女共に対象　ただし、Instagram＋Blog風に作成する為、
+ターゲットユーザーのコアと致しましては、20‐30代前後の男女の利用を想定>
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+<一般ユーザー側は、誕生日　クリスマス　バレンタイン等の、記念日の際にプレゼント選びに利用。
+投稿側は、自身が選んだプレゼント、シチュエーションの紹介により、承認欲求を満たしたい時。
+企業側は、商品紹介等による、新製品アピールを行いたい時。>
 
-* ...
+## 設計書
+
+<...>
+
+## チャレンジ要素一覧
+
+<https://docs.google.com/spreadsheets/d/1VEz-5fuBCYwVYhY84xhQQ7hXJ9BZ4tzxEQep0yNJoyo/edit#gid=0>
+
+## 開発環境- OS�E�Linux(CentOS)
+
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク ruby on Rails
+- JS ライブラリ Query
+- IDE cloud9
+
+## 使用素材 -外部サービスの画像素材 音声素材を使用した場合 サービス名と URL を記してください。
+
