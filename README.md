@@ -47,6 +47,9 @@
 <テーブル定義書>
 <https://1drv.ms/x/s!AqH9YsmviZsIsjkyI59AYI_mPuCt>
 
+<アプリケーション詳細設計>
+<https://1drv.ms/x/s!AqH9YsmviZsIsj-3YvoXae1p7O2G>
+
 ## チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1VEz-5fuBCYwVYhY84xhQQ7hXJ9BZ4tzxEQep0yNJoyo/edit#gid=0>
