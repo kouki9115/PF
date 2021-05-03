@@ -11,6 +11,8 @@
   <%=f.text_field :title %>
   <h4>内容</h4>
   <%=f.text_area :body %>
+  <h4>ジャンル</h4>
+  <%= f.collection_select(:genre_id, @genres, :id, :name )%>
 
   <%=f.submit "post" %>
  <% end %>
