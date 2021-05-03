@@ -1,2 +1,12 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<% @users.each do|user| %>
+
+ <p4><%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %></p4>
+ <p4><%=user.name %></p4>
+ <p4><%=user.introduction %></p4>
+
+ <p4><%= link_to "詳細", user_path(user) %>
+
+<% end %>
