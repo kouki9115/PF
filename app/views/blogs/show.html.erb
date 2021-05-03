@@ -1,2 +1,11 @@
 <h1>Blogs#show</h1>
 <p>Find me in app/views/blogs/show.html.erb</p>
+
+
+<p4><%=attachment_image_tag @blog, :image, :fill, 100, 100, format: 'jpeg' %></p4>
+ <p4><%=@blog.name %></p4>
+ <p4><%=@blog.price %></p4>
+ <p4><%=@blog.title %></p4>
+ <p4><%=@blog.body %></p4>
+ <p4><%= link_to "編集", edit_blog_path(@blog) %>
+ <%= link_to "削除", blog_path(@blog), method: :delete%></p4>
