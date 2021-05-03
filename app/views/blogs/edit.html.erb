@@ -1,2 +1,19 @@
 <h1>Blogs#edit</h1>
 <p>Find me in app/views/blogs/edit.html.erb</p>
+
+<%= form_with model: @blog,rocal:true do |f| %>
+
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  <h4>製品</h4>
+  <%=f.text_field :name %>
+  <h4>価格</h4>
+  <%=f.text_field :price %>
+  <h4>タイトル</h4>
+  <%=f.text_field :title %>
+  <h4>内容</h4>
+  <%=f.text_area :body %>
+
+  <%=f.submit "Update" %>
+
+<% end %>

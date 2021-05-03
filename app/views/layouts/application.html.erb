@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>For_you</title>
+    <title>for you</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +14,7 @@
     <header>
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-       <a class="navbar-brand" href="/"><span>For_you</span></a>
+       <a class="navbar-brand" href="/"><span>for you</span></a>
         <ul class="navbar-nav ml-auto">
          <% if user_signed_in? %>
           <li><%= link_to "Home", root_path,class: 'fas fa-home nav-link text-light' %></li>
@@ -34,6 +34,16 @@
     </header>
 
     <%= yield %>
+
+    <footer>
+     <div class='container mt-5'>
+      <div class='row'>
+       <div class='mx-auto'>
+        <p>@for you.inc</p>
+       </div>
+      </div>
+     </div>
+    </footer>
 
    </font>
   </body>
