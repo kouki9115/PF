@@ -7,5 +7,6 @@
  <p4><%=@blog.price %></p4>
  <p4><%=@blog.title %></p4>
  <p4><%=@blog.body %></p4>
+ <p4><%=@blog.genre.name %></p4>
  <p4><%= link_to "編集", edit_blog_path(@blog) %>
  <%= link_to "削除", blog_path(@blog), method: :delete%></p4>

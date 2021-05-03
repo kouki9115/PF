@@ -5,9 +5,11 @@ class BlogsController < ApplicationController
 
   def new
     @blog=Blog.new
+    @genres = Genre.all
   end
 
   def create
+    #byebug
     @blog=Blog.new(blog_params)
     @blog.save
     redirect_to blogs_path
@@ -19,6 +21,7 @@ class BlogsController < ApplicationController
 
   def edit
     @blog=Blog.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
@@ -35,7 +38,7 @@ class BlogsController < ApplicationController
 
   private
   def  blog_params
-  params.require(:blog).permit(:image,:name,:price,:title,:body)
+  params.require(:blog).permit(:image,:name,:price,:title,:body,:genre_id)
   end
 
 end
