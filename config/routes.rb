@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources:blogs
   resources:users, only:[:index,:show,:edit,:update,:destroy]
-  resources:genres, only:[:index,:edit,:update,:destroy]
+  resources:genres, only:[:index,:create,:edit,:update,:destroy]
 
 end
