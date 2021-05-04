@@ -1,6 +1,27 @@
 <h1>検索結果</h1>
-
+<table>
+ <thead>
+  <tr>
+   <th>profile_image</th>
+   <th><%= sort_link(@q, :name, "Name") %></th>
+   <th>introduction</th>
+   <th colspan="2"></th>
+  </tr>
+ </thead>
+ <tbody>
     <% @results.each do |user| %>
-      <%= user.name %>
-       
-    <% end %>
+    <tr>
+   <td><%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %></td>
+   <td><%=user.name %></td>
+   <td><%=user.introduction %></td>
+   <td><%= link_to "詳細", user_path(user) %></td>
+   <td><% if current_user.following?(user) %>
+      <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+     <% else %>
+      <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+     <% end %>
+    </td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
