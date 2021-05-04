@@ -7,7 +7,7 @@ class User < ApplicationRecord
   attachment :profile_image
 
   has_many :blogs, dependent: :destroy
-
+  has_many :blog_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
