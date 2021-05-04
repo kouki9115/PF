@@ -1,6 +1,36 @@
 <h1>検索結果</h1>
-
-    <% @results.each do |blog| %>
-      <%= blog.name %>
-
+ <table>
+ <thead>
+  <tr>
+   <th>image</th>
+   <th>favorite</th>
+   <th><%= sort_link(@q, :name, "Name") %></th>
+   <th><%= sort_link(@q, :price, "Price") %></th>
+   <th><%= sort_link(@q, :title, "Title") %></th>
+   <th colspan="4"></th>
+  </tr>
+ </thead>
+ <tbody>
+  <% @results.each do |blog| %>
+   <tr>
+   <td><%=attachment_image_tag blog, :image, :fill, 100, 100, format: 'jpeg' %></td>
+   <td><% if blog.favorited_by?(current_user) %>
+    <%= link_to blog_favorites_path(blog), method: :delete do %>
+      ♥<%= blog.favorites.count %> いいね
     <% end %>
+   <% else %>
+    <%= link_to blog_favorites_path(blog), method: :post do %>
+    ♡<%= blog.favorites.count %> いいね
+    <% end %>
+   <% end %></td>
+   <td><%=blog.name %></td>
+   <td><%=blog.price %></td>
+   <td><%=blog.title %></td>
+   <td><%=blog.body %></td>
+   <td><%=blog.genre.name %></td>
+   <td><%= link_to "詳細", blog_path(blog) %>
+       <%= link_to "削除", blog_path(blog), method: :delete%></td>
+   <% end %>
+   </tr>
+  </tbody>
+ </table>

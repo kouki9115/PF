@@ -9,19 +9,29 @@
   <%= f.submit '検索' %>
 <% end %>
 
-
-<% @users.each do|user| %>
-
- <p4><%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %></p4>
- <p4><%=user.name %></p4>
- <p4><%=user.introduction %></p4>
- <p4><%= link_to "詳細", user_path(user) %>
-
- <p4><% if current_user.following?(user) %>
+<table>
+ <thead>
+  <tr>
+   <th>profile_image</th>
+   <th><%= sort_link(@q, :name, "Name") %></th>
+   <th>introduction</th>
+   <th colspan="2"></th>
+  </tr>
+ </thead>
+ <tbody>
+  <% @users.each do|user| %>
+  <tr>
+   <td><%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %></td>
+   <td><%=user.name %></td>
+   <td><%=user.introduction %></td>
+   <td><%= link_to "詳細", user_path(user) %></td>
+   <td><% if current_user.following?(user) %>
       <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
      <% else %>
       <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
      <% end %>
- </p4>
-
-<% end %>
+    </td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
