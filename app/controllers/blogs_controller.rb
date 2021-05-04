@@ -1,6 +1,9 @@
 class BlogsController < ApplicationController
+
+  before_action :set_q, only: [:index, :search]
+
   def index
-    @blogs=Blog.all
+    @blogs = @q.result
   end
 
   def new
@@ -37,9 +40,18 @@ class BlogsController < ApplicationController
     redirect_to blogs_path
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
   def  blog_params
   params.require(:blog).permit(:image,:name,:price,:title,:body,:genre_id)
+  end
+
+
+  def set_q
+    @q = Blog.ransack(params[:q])
   end
 
 end

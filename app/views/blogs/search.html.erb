@@ -1,18 +1,5 @@
-<main><h1>Blogs#index</h1>
-<p>Find me in app/views/blogs/index.html.erb</p>
-
-<h1>検索</h1>
-<%= search_form_for @q, url: search_blogs_path do |f| %>
-  <%= f.label :name_or_price_or_title_cont, '検索' %>
-  <%= f.search_field :name_or_price_or_title_cont %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-
-<p><%=link_to "blog#new", new_blog_path %></p>
-
-
-<table>
+<h1>検索結果</h1>
+ <table>
  <thead>
   <tr>
    <th>image</th>
@@ -24,8 +11,8 @@
   </tr>
  </thead>
  <tbody>
-  <% @blogs.each do |blog| %>
-  <tr>
+  <% @results.each do |blog| %>
+   <tr>
    <td><%=attachment_image_tag blog, :image, :fill, 100, 100, format: 'jpeg' %></td>
    <td><% if blog.favorited_by?(current_user) %>
     <%= link_to blog_favorites_path(blog), method: :delete do %>
@@ -47,4 +34,3 @@
    </tr>
   </tbody>
  </table>
-</main>
