@@ -4,5 +4,44 @@
  <p4><%=attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %></p4>
  <p4><%=@user.name %></p4>
  <p4><%=@user.introduction %></p4>
-
  <p4><%= link_to "編集", edit_user_path(@user) %></p4>
+
+ <p><%= "フォロー数: #{@user.follower.count}" %></p>
+ <p><%= "フォロワー数: #{@user.followed.count}" %></p>
+  <% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+  <% else %>
+    <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+  <% end %>
+  <% end %>
+
+
+
+ <h3>フォロー一覧</h3>
+  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+    <p>
+      <%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+      <%=user.name %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <% end %>
+      <%= link_to "show", user_path(user) %>
+    </p>
+  <% end %>
+
+<h3>フォロワー一覧</h3>
+  <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+    <p>
+      <%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+      <%=user.name %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <% end %>
+      <%= link_to "show", user_path(user) %>
+    </p>
+  <% end %>

@@ -11,6 +11,7 @@ class BlogsController < ApplicationController
   def create
     #byebug
     @blog=Blog.new(blog_params)
+    @blog.user = current_user
     @blog.save
     redirect_to blogs_path
   end

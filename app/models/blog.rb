@@ -1,7 +1,10 @@
 class Blog < ApplicationRecord
   attachment :image
+  attachment :profile_image
 
   belongs_to :genre
+
+  belongs_to :user
 
   has_many:favorites, dependent: :destroy
 
