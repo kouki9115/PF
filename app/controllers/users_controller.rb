@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+ 
+ before_action :set_q, only: [:index, :search]
+ 
   def index
     @users=User.all
   end
@@ -21,8 +24,17 @@ class UsersController < ApplicationController
    @user=User.find(params[:id])
    #後程対応予定
   end
+  
+  def search
+    @results = @q.result
+  end
 
   private
+  
+  def set_q
+    @q = User.ransack(params[:q])
+  end
+  
   def params_user
   params.require(:user).permit(:profile_image,:name,:introduction)
   end
