@@ -1,7 +1,7 @@
 # For you
 
 ## サイト概要
-Instagram＋Blog型 プレゼント紹介特化サイト
+Instagram＋blog型 プレゼント紹介特化サイト
 
 ### サイトテーマ
 

@@ -10,5 +10,8 @@ Rails.application.routes.draw do
 
   resources:users, only:[:index,:show,:edit,:update,:destroy]
   resources:genres, only:[:index,:create,:edit,:update,:destroy]
-
+  
+  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  
 end
