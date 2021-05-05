@@ -1,22 +1,4 @@
 <h1>Blog 投稿ページ</h1>
 
- <%=form_with model: @blog, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>場面</h4>
-  <%= f.select :scene, {'誕生日': 1,'記念日': 2,'お祝い': 3,'サプライズ': 4,'自分へのご褒美': 5,'プロポーズ': 6,'クリスマス': 7}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, } %>
-  <h4>相手</h4>
-  <%= f.select :partner, {'家族・親戚': 1,'彼氏・彼女': 2,'友達・知人': 3,'ビジネス・目上の人': 4,'その他': 5}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, } %>
-  <h4>ジャンル</h4>
-  <%= f.collection_select(:genre_id, @genres, :id, :name )%>
-  <h4>製品名</h4>
-  <%=f.text_field :name %>
-  <h4>価格</h4>
-  <%= f.select :price, {'1000': 1000,'2000': 2000,'3000': 3000,'4000': 4000,'5000': 5000,'10000': 10000,'50000': 50000}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, } %>
-  <h4>タイトル</h4>
-  <%=f.text_field :title %>
-  <h4>内容</h4>
-  <%=f.text_area :body %>
+<%= render "form",blog: @blog %>
 
-  <%=f.submit "post" %>
- <% end %>
