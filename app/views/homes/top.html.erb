@@ -4,4 +4,17 @@
     　Giftを渡す際に、お悩みの方々にお力添えが出来れば幸いです。</p2>
 　<p><%=link_to "for you", blogs_path %></p>
 
+
+ <tbody>
+  <% @blogs.each do |blog| %>
+  <tr>
+   <td><%=attachment_image_tag blog, :image, :fill, 100, 100, format: 'jpeg' %></td>
+   <td><%=blog.name %></td>
+   <td><%=blog.price %></td>
+   <% end %>
+   </tr>
+  </tbody>
+ </table>
+
+
 </main>
