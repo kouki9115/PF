@@ -1,10 +1,10 @@
 <main>
  <div class="containar-fluid">
   <div class="row">
-   <div class ="col-lg-6">
+   <div class ="col-lg-5 mt-5 ml-5">
     <p4><%=attachment_image_tag @blog, :image, :fill, 480, 360, format: 'jpeg' %></p4>
    </div>
-   <div class ="col-lg-6">
+   <div class ="col-lg-5 mt-5 ml-5">
     <h2><%=@blog.scene %></h2>
     <h2><%=@blog.partner %></h2>
     <h2><%=@blog.genre.name %></h2>
@@ -17,12 +17,13 @@
    </div>
   </div>
 
+  <div class ="mt-5 ml-5">
   <h2><%=@blog.user.name %></h2>
   <h2><%=@blog.title %></h2>
   <p><%=@blog.body %></p>
+  </div>
 
-
-  <div class="comments">
+  <div class="comments mt-5 ml-5">
    <p>コメント件数：<%= @blog.blog_comments.count %></p>
     <% @blog.blog_comments.each do |blog_comment| %>
     <%= blog_comment.user.name %>
@@ -35,14 +36,14 @@
     <% end %>
    </div>
 
-   <div class="new-comment">
+   <div class="new-comment mt-2 ml-5">
     <%= form_with(model:[@blog, @blog_comment], local: true) do |f| %>
     <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
     <% end %>
    </div>
 
-   <div class="row">
+   <div class="row mt-5 ml-5">
     <% @blogs.each do |blog| %>
    <div class="col-auto">
     <p><%= link_to blog_path(blog) do %>
