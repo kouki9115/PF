@@ -11,14 +11,14 @@
 <% end %>
 
 <p><%=link_to "blog#new", new_blog_path %></p>
-
+<%= sort_link(@q, :scene, "Scene") %>
 
 <table>
  <thead>
   <tr>
    <th>image</th>
    <th>favorite</th>
-   <th><%= sort_link(@q, :scene, "Scene") %></th>
+   <th><%#= sort_link(@q, :scene, "Scene") %></th>
    <th><%= sort_link(@q, :partner, "Partner") %></th>
    <th><%= sort_link(@q, :genre_name, "Genre_Name") %></th>
    <th><%= sort_link(@q, :name, "Name") %></th>
@@ -31,7 +31,10 @@
  <tbody>
   <% @blogs.each do |blog| %>
   <tr>
-   <td><%=attachment_image_tag blog, :image, :fill, 100, 100, format: 'jpeg' %></td>
+   <td><%= link_to blog_path(blog) do %>
+   <%=attachment_image_tag blog, :image, :fill, 100, 100, format: 'jpeg' %>
+   <% end %></td>
+
    <td><% if blog.favorited_by?(current_user) %>
     <%= link_to blog_favorites_path(blog), method: :delete do %>
       ♥<%= blog.favorites.count %> いいね
