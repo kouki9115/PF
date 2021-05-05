@@ -3,8 +3,8 @@
 
 <h1>検索</h1>
 <%= search_form_for @q, url: search_blogs_path do |f| %>
-  <%= f.label :name_or_price_or_title_cont, '検索' %>
-  <%= f.search_field :name_or_price_or_title_cont %>
+  <%= f.label :scene_or_partner_or_name_or_price_or_title_cont, '検索' %>
+  <%= f.search_field :scene_or_partner_or_name_or_price_or_title_cont %>
   <br>
   <%= f.submit '検索' %>
 <% end %>
@@ -17,6 +17,8 @@
   <tr>
    <th>image</th>
    <th>favorite</th>
+   <th><%= sort_link(@q, :scene, "Scene") %></th>
+   <th><%= sort_link(@q, :partner, "Partner") %></th>
    <th><%= sort_link(@q, :name, "Name") %></th>
    <th><%= sort_link(@q, :price, "Price") %></th>
    <th><%= sort_link(@q, :title, "Title") %></th>
@@ -36,6 +38,11 @@
     ♡<%= blog.favorites.count %> いいね
     <% end %>
    <% end %></td>
+   <td><%=blog.scene %></td>
+    <% if blog.scene == 1 %><td>誕生日</td>
+    <% elsif blog.scene == 2 %><td>記念日</td>
+    <%  end  %>
+   <td><%=blog.partner %></td>
    <td><%=blog.name %></td>
    <td><%=blog.price %></td>
    <td><%=blog.title %></td>

@@ -14,3 +14,22 @@
 
  <p4><%= link_to "編集", edit_blog_path(@blog) %>
  <%= link_to "削除", blog_path(@blog), method: :delete%></p4>
+
+ <div class="comments">
+<p>コメント件数：<%= @blog.blog_comments.count %></p>
+<% @blog.blog_comments.each do |blog_comment| %>
+  <%= blog_comment.user.name %>
+  <%= blog_comment.created_at.strftime('%Y/%m/%d') %><%= blog_comment.comment %>
+  <% if blog_comment.user == current_user %>
+  <div class="comment-delete">
+  <%= link_to "削除", blog_blog_comment_path(blog_comment.blog, blog_comment), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+</div>
+
+ <div class="new-comment">
+<%= form_with(model:[@blog, @blog_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>

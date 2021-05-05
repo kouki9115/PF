@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2021_05_02_075703) do
     t.integer "user_id"
     t.integer "genre_id"
     t.string "image_id"
+    t.string "scene"
+    t.string "partner"
     t.string "name"
     t.string "price"
     t.string "title"

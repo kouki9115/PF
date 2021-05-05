@@ -4,6 +4,8 @@
   <tr>
    <th>image</th>
    <th>favorite</th>
+   <th><%= sort_link(@q, :scene, "Scene") %></th>
+   <th><%= sort_link(@q, :partner, "Partner") %></th>
    <th><%= sort_link(@q, :name, "Name") %></th>
    <th><%= sort_link(@q, :price, "Price") %></th>
    <th><%= sort_link(@q, :title, "Title") %></th>
@@ -23,6 +25,8 @@
     ♡<%= blog.favorites.count %> いいね
     <% end %>
    <% end %></td>
+   <td><%=blog.scene %></td>
+   <td><%=blog.partner %></td>
    <td><%=blog.name %></td>
    <td><%=blog.price %></td>
    <td><%=blog.title %></td>
