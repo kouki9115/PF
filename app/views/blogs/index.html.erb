@@ -1,5 +1,6 @@
-<main><h1>Blogs#index</h1>
-<p>Find me in app/views/blogs/index.html.erb</p>
+<main>
+
+ <h1>Blogs#index</h1>
 
 <h1>検索</h1>
 <%= search_form_for @q, url: search_blogs_path do |f| %>
@@ -19,10 +20,12 @@
    <th>favorite</th>
    <th><%= sort_link(@q, :scene, "Scene") %></th>
    <th><%= sort_link(@q, :partner, "Partner") %></th>
+   <th><%= sort_link(@q, :genre_name, "Genre_Name") %></th>
    <th><%= sort_link(@q, :name, "Name") %></th>
    <th><%= sort_link(@q, :price, "Price") %></th>
-   <th><%= sort_link(@q, :title, "Title") %></th>
-   <th colspan="4"></th>
+　 <th>title</th>
+　 <th>body</th>
+   <th colspan="3"></th>
   </tr>
  </thead>
  <tbody>
@@ -40,11 +43,11 @@
    <% end %></td>
    <td><%=blog.scene %></td>
    <td><%=blog.partner %></td>
+   <td><%=blog.genre.name %></td>
    <td><%=blog.name %></td>
    <td><%=blog.price %></td>
    <td><%=blog.title %></td>
    <td><%=blog.body %></td>
-   <td><%=blog.genre.name %></td>
    <td><%= link_to "詳細", blog_path(blog) %>
        <%= link_to "削除", blog_path(blog), method: :delete%></td>
    <% end %>
