@@ -3,14 +3,17 @@
  <div class="containar-fluid">
   <div class="row">
 
-  <div class="bxslider">
-   <%= image_tag 'box.jpg'%>
-   <%= image_tag 'gift-2.jpg'%>
-  </div>
+   <div class="bxslider mt-5">
+    <%= image_tag 'gift.jpg', width:"100%",height:"400" %>
+    <%= image_tag 'gift-2.jpg', width:"100%",height:"400" %>
+    <%= image_tag 'gift-box.jpg',width:"100%",height:"400" %>
+    <%= image_tag 'box.jpg', width:"100%",height:"400" %>
+
+   </div>
 
   </div>
 
-  </div>
+ </div>
 
   <div class="row mt-5 ml-5">
    <% @blogs.each do |blog| %>
@@ -30,9 +33,11 @@
    </div>
    <% end %>
   </div>
+<%= paginate @blogs %>
+
 
   <div class="row">
-   <%= image_tag "box.jpg",width:"100%",height:"300" %>
+   <%= image_tag "milky-way.jpg",width:"100%",height:"200" %>
     <%#<div class="card-img-overlay">%>
      <h1></h1>
 　    <p2></p2>
