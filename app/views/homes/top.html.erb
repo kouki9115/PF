@@ -2,14 +2,15 @@
 
  <div class="containar-fluid">
   <div class="row">
-   <%= image_tag "box.jpg",width:"100%",height:"300" %>
-    <%#<div class="card-img-overlay">%>
-     <h1></h1>
-　    <p2></p2>
-　    <p><%#=link_to "for you", blogs_path %></p>
-    </div>
+
+  <div class="bxslider">
+   <%= image_tag 'box.jpg'%>
+   <%= image_tag 'gift-2.jpg'%>
   </div>
 
+  </div>
+
+  </div>
 
   <div class="row mt-5 ml-5">
    <% @blogs.each do |blog| %>
@@ -26,11 +27,26 @@
     </div>
    </div>
 
-   <%#= link_to "削除", blog_path(blog), method: :delete%>
    </div>
    <% end %>
   </div>
+
+  <div class="row">
+   <%= image_tag "box.jpg",width:"100%",height:"300" %>
+    <%#<div class="card-img-overlay">%>
+     <h1></h1>
+　    <p2></p2>
+　    <p><%#=link_to "for you", blogs_path %></p>
+　</div>
+
+
  </div>
-
-
 </main>
+
+     <script>
+       $(document).ready(function(){
+         $('.bxslider').bxSlider({
+         auto: true,
+        });
+       });
+     </script>

@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
   def index
-    @blogs = @q.result
+    @blogs = @q.result.page(params[:page])
   end
 
   def new
@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.page(params[:page])
   end
 
   private
