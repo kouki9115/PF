@@ -1,10 +1,12 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
 
- <%= form_with model: @genre, local:true do |f| %>
+<div class ="mt-5 ml-5">
 
- <%=f.text_field :name %>
- <%=f.submit "Update" %>
+ <h1>Genres#edit</h1>
 
- <% end %>
+   <%= form_with model: @genre, local:true do |f| %>
+   <%=f.text_field :name %>
+   <%=f.submit "Update" %>
+   <% end %>
+
+</div>
 
