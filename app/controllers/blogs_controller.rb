@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
   def index
-    @blogs = @q.result.page(params[:page])
+    @blogs = @q.result.page(params[:page]).reverse_order
   end
 
   def new
@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
   end
 
   def search
-    @results = @q.result.page(params[:page])
+    @results = @q.result.page(params[:page]).reverse_order
   end
 
   private
