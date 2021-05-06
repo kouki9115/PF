@@ -3,7 +3,7 @@ class UsersController < ApplicationController
  before_action :set_q, only: [:index, :search]
 
   def index
-    @users = @q.result
+    @users = @q.result.page(params[:page])
   end
 
   def show
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.page(params[:page])
   end
 
   private
