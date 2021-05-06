@@ -1,26 +1,27 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
- <p4><%=attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %></p4>
- <p4><%=@user.name %></p4>
- <p4><%=@user.introduction %></p4>
- <p4><%= link_to "編集", edit_user_path(@user) %></p4>
-
- <p><%= "フォロー数: #{@user.follower.count}" %></p>
- <p><%= "フォロワー数: #{@user.followed.count}" %></p>
-  <% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
-  <% else %>
-    <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
-  <% end %>
-  <% end %>
+<main>
+ <div class="containar-fluid">
+  <div class="row">
+   <div class ="col-lg-5 mt-5 ml-5">
+    <p4><%=attachment_image_tag @user, :profile_image, :fill, 480, 360, format: 'jpeg' %></p4>
+   </div>
+   <div class ="col-lg-5 mt-5 ml-5">
+    <h2><%=@user.name %></h2>
+    <h2><%=@user.introduction %></h2>
 
 
+    <h2><% unless @user == current_user %>
+        <% if current_user.following?(@user) %>
+         <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+        <% else %>
+         <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+        <% end %>
+        <% end %></h2>
 
- <h3>フォロー一覧</h3>
-  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
-    <p>
+
+
+    <h2>フォロー一覧 <%= @user.follower.count %>人</h2>
+        <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+     <p>
       <%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
       <%=user.name %>
       <% if current_user.following?(user) %>
@@ -29,12 +30,12 @@
         <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
       <% end %>
       <%= link_to "show", user_path(user) %>
-    </p>
-  <% end %>
+     </p>
+        <% end %>
 
-<h3>フォロワー一覧</h3>
-  <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
-    <p>
+    <h2>フォロワー一覧　<%= @user.followed.count %>人</h2>
+      <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+     <p>
       <%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
       <%=user.name %>
       <% if current_user.following?(user) %>
@@ -43,5 +44,22 @@
         <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
       <% end %>
       <%= link_to "show", user_path(user) %>
-    </p>
-  <% end %>
+     </p>
+      <% end %>
+
+
+    <h4><%= link_to "編集", edit_user_path(@user) %>
+    <%= link_to "削除", user_path(@user), method: :delete%></h4>
+   </div>
+  </div>
+
+ <h2 class="mt-5 ml-5">ユーザー投稿一覧</h2>
+　<%= render "blogs/index" , blogs: @blogs %>
+
+
+
+  </div>
+</main>
+
+
+
