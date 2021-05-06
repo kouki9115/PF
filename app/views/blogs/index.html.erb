@@ -27,37 +27,6 @@
    <h6><%=link_to "blog#new", new_blog_path %></h6>
   </div>
 
-
-  <div class="row mt-5 ml-5">
-   <% @blogs.each do |blog| %>
-  <div class="col-auto">
-   <p><%= link_to blog_path(blog) do %>
-       <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg' %>
-       <% end %></p>
-
-  <div class="row">
-   <div class="col-8">
-     <%=blog.name %><br>
-     <%=blog.genre.name %><br>
-     <%=blog.price %></p>
-   </div>
-   <div class="col-4">
-    <p><% if blog.favorited_by?(current_user) %>
-        <%= link_to blog_favorites_path(blog), method: :delete do %>
-         ♥<%= blog.favorites.count %>
-        <% end %>
-       <% else %>
-        <%= link_to blog_favorites_path(blog), method: :post do %>
-         ♡<%= blog.favorites.count %>
-        <% end %>
-       <% end %>
-     </p>
-    </div>
-   </div>
-
-   <%#= link_to "削除", blog_path(blog), method: :delete%>
-   </div>
-   <% end %>
-  </div>
+  <%= render "index" , blogs: @blogs %>
  </div>
 </main>
