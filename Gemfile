@@ -76,3 +76,8 @@ gem 'pry-rails'
 gem 'pry-byebug', group: :development
 
 gem 'ransack'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
