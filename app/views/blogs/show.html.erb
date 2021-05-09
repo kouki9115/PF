@@ -38,7 +38,7 @@
     <% end %>
    </div>
 
-   <div class="new-comment mt-1 ml-5">
+   <div class="new-comment mt-2 ml-5">
     <%= form_with(model:[@blog, @blog_comment], local: true) do |f| %>
     <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
