@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>for you</title>
+    <title>For you</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,7 +21,7 @@
     <header>
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-       <a class="navbar-brand" href="/"><span>for you</span></a>
+       <a class="navbar-brand" href="/"><span>For you</span></a>
         <ul class="navbar-nav ml-auto">
          <% if user_signed_in? %>
           <li><%= link_to "Home", root_path,class: 'fas fa-home nav-link text-light' %></li>
@@ -31,7 +31,7 @@
           <li><%= link_to "logout", destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light'%></li>
          <% else %>
           <li><%= link_to "Home",root_path,class: 'fas fa-home nav-link text-light' %></li>
-          <li><%= link_to "About", homes_about_path,class: 'fas fa-home nav-link text-light'%></li>
+          <li><%= link_to "For youとは", homes_about_path,class: 'fas fa-home nav-link text-light'%></li>
           <li><%= link_to "Signup", new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %></li>
           <li><%= link_to "login", new_user_session_path,class: 'fas fa-sign-in-alt nav-link text-light' %></li>
           <li><%= link_to 'Gestlogin', users_guest_sign_in_path, method: :post,class: 'fas fa-sign-in-alt nav-link text-light' %></li>
