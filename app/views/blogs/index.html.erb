@@ -3,7 +3,7 @@
  <div class="containar-fluid">
   <div class="row">
    <div class ="col-lg-7 mt-5 ml-5">
-    <h1>blog 一覧 (<%= @blogs_new.count %>件)</h1>
+    <h1>blog 一覧 </h1>
    </div>
    <div class ="col-lg-4 mt-4 ">
      <%= search_form_for @q, url: search_blogs_path do |f| %>
@@ -27,21 +27,13 @@
    <h6><%=link_to "blog#new", new_blog_path %></h6>
   </div>
 
-　<div class ="mt-1 ml-5">
-　　<h1>投稿一覧</h1>
-  </div>
-
-  <%= render "index" , blogs: @blogs %>
-   <%= paginate @blogs %>
-
-
 
   <div class ="mt-5 ml-5">
-　 <h1>新着投稿</h1>
+　 <h1>ランキング</h1>
 　</div>
 
 <div class="row mt-1 ml-5">
-   <% @blogs_new.each do |blog| %>
+   <% @blogs_ran.each do |blog| %>
   <div class="col-auto">
    <p><%= link_to blog_path(blog) do %>
        <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg', fallback: "no_image.png", size:'180x140' %>
@@ -67,10 +59,18 @@
     </div>
    </div>
 
-   <%#= link_to "削除", blog_path(blog), method: :delete%>
    </div>
    <% end %>
   </div>
+
+
+　<div class ="mt-1 ml-5">
+　　<h1>投稿一覧</h1>
+  </div>
+
+  <%= render "index" , blogs: @blogs %>
+   <%= paginate @blogs %>
+
 
 
   <div class ="mt-5 ml-5">
@@ -78,7 +78,7 @@
 　</div>
 
 <div class="row mt-1 ml-5">
-   <% @blogs_ran.each do |blog| %>
+   <% @blogs_new.each do |blog| %>
   <div class="col-auto">
    <p><%= link_to blog_path(blog) do %>
        <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg', fallback: "no_image.png", size:'180x140' %>
@@ -86,9 +86,9 @@
 
   <div class="row">
    <div class="col-8">
-     <%=blog.title %><br>
-     <%=blog.partner %><br>
-     <%=blog.scene %><br>
+     <%=blog.name %><br>
+     <%=blog.genre.name %><br>
+     <%=blog.price %></p>
    </div>
    <div class="col-4">
     <p><% if blog.favorited_by?(current_user) %>

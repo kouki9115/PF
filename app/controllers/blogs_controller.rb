@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
        .left_joins(:favorites)
        .group('blogs.id')
        .order('favorites DESC')
+       .limit(5)
   end
 
   def new
