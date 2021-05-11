@@ -12,8 +12,11 @@
     <h2><%=@blog.price %></h2>
     <h2>♥<%=@blog.favorites.count %></h2>
 
-    <h4><%= link_to "編集", edit_blog_path(@blog) %>
-    <%= link_to "削除", blog_path(@blog), method: :delete%></h4>
+    <h4><% if @blog.user == current_user %>
+        <%= link_to "編集", edit_blog_path(@blog) %>
+        <%= link_to "削除", blog_path(@blog), method: :delete%>
+        <% end %>
+    </h4>
    </div>
   </div>
 

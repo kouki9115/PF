@@ -22,7 +22,7 @@
     <h2>フォロー一覧 <%= @user.follower.count %>人</h2>
         <% @user.following_user.where.not(id: current_user.id).each do |user| %>
      <p>
-      <%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+      <%=attachment_image_tag user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.png", size:'30x30'  %>
       <%=user.name %>
       <% if current_user.following?(user) %>
         <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
@@ -36,7 +36,7 @@
     <h2>フォロワー一覧　<%= @user.followed.count %>人</h2>
       <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
      <p>
-      <%=attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+      <%=attachment_image_tag user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.png", size:'30x30'  %>
       <%=user.name %>
       <% if current_user.following?(user) %>
         <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
@@ -48,8 +48,11 @@
       <% end %>
 
 
-    <h4><%= link_to "編集", edit_user_path(@user) %>
-    <%= link_to "削除", user_path(@user), method: :delete%></h4>
+    <h4><% if @user == current_user %>
+        <%= link_to "編集", edit_user_path(@user) %>
+        <%= link_to "削除", user_path(@user), method: :delete%>
+        <% end %>
+    </h4>
    </div>
   </div>
 
