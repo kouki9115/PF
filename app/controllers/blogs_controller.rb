@@ -4,7 +4,8 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = @q.result.page(params[:page]).reverse_order
-    @blogs_new = Blog.all#.order('count(blog.favorites) desc')
+    @blogs_new = Blog.all.order(created_at: "DESC").limit(5)
+    #.order('count(blog.favorites) desc')
   end
 
   def new
