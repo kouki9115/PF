@@ -33,7 +33,8 @@
           <li><%= link_to "Home",root_path,class: 'fas fa-home nav-link text-light' %></li>
           <li><%= link_to "About", homes_about_path,class: 'fas fa-home nav-link text-light'%></li>
           <li><%= link_to "Signup", new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %></li>
-          <li> <%= link_to "login", new_user_session_path,class: 'fas fa-sign-in-alt nav-link text-light' %></li>
+          <li><%= link_to "login", new_user_session_path,class: 'fas fa-sign-in-alt nav-link text-light' %></li>
+          <li><%= link_to 'Gestlogin', users_guest_sign_in_path, method: :post,class: 'fas fa-sign-in-alt nav-link text-light' %></li>
          <% end %>
         </ul>
        </div>
