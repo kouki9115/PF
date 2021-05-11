@@ -19,7 +19,7 @@
    <% @blogs.each do |blog| %>
     <div class="col-auto">
      <p><%= link_to blog_path(blog) do %>
-       <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg' %>
+       <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg', fallback: "no_image.png", size:'180x140'  %>
        <% end %></p>
 
     <div class="row">

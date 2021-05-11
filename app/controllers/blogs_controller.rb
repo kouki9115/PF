@@ -4,6 +4,7 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = @q.result.page(params[:page]).reverse_order
+    @blogs_new = Blog.all#.order('count(blog.favorites) desc')
   end
 
   def new

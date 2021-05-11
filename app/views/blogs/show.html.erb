@@ -2,7 +2,7 @@
  <div class="containar-fluid">
   <div class="row">
    <div class ="col-lg-5 mt-5 ml-5">
-    <p4><%=attachment_image_tag @blog, :image, :fill, 480, 360, format: 'jpeg' %></p4>
+    <p4><%=attachment_image_tag @blog, :image, :fill, 480, 360, format: 'jpeg', fallback: "no_image.png", size:'480x360' %></p4>
    </div>
    <div class ="col-lg-5 mt-5 ml-5">
     <h2><%=@blog.scene %></h2>
