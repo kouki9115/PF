@@ -49,7 +49,7 @@
 
 
     <h4><% if current_user.name == User.find_by(name: "ゲスト").name %>
-        <p>ゲストログインの為、編集機能は使用できません</p>
+        <p>★ゲストログインの為、編集機能は使用できません</p>
 
         <% elsif @user == current_user %>
          <%= link_to "編集", edit_user_path(@user) %>
