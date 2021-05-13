@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources:blogs do
    collection do
     get 'search'
+    get "sort"
    end
    resources :blog_comments,only:[:create,:destroy]
    resource :favorites, only: [:create, :destroy]

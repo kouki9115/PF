@@ -63,4 +63,9 @@ class BlogsController < ApplicationController
     @q = Blog.ransack(params[:q])
   end
 
+
+  def sort
+   @blogs=Blog.all
+  end
+
 end

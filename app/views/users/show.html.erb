@@ -56,6 +56,12 @@
          <%#= link_to "削除", user_path(@user), method: :delete%>
         <% end %>
     </h4>
+
+    <h4><% if current_user.id == User.find_by(id:1).id %>
+         <%=link_to "genre", genres_path %>
+        <% end %>
+    </h4>
+
    </div>
   </div>
 
