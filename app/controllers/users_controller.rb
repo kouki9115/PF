@@ -31,11 +31,11 @@ class UsersController < ApplicationController
     @results = @q.result.page(params[:page]).reverse_order
   end
 
-  def Withdrawal
+  def withdrawal
     @user = User.find(params[:id])
     @user.update(is_valid: false)#is_validカラムにフラグを立てる(defaultはtrue)
     reset_session#ログアウトさせる
-    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    flash[:notice] = "退会完了致しました。"
     redirect_to root_path
   end
 
@@ -48,4 +48,5 @@ class UsersController < ApplicationController
   def params_user
   params.require(:user).permit(:profile_image,:name,:introduction)
   end
+
 end
