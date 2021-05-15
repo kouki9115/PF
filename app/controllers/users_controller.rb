@@ -31,6 +31,14 @@ class UsersController < ApplicationController
     @results = @q.result.page(params[:page]).reverse_order
   end
 
+  def Withdrawal
+    @user = User.find(params[:id])
+    @user.update(is_valid: false)#is_validカラムにフラグを立てる(defaultはtrue)
+    reset_session#ログアウトさせる
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
   private
 
   def set_q
