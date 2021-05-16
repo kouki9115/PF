@@ -1,23 +1,25 @@
+<div class="col-5">
 
-
-<%=form_with model: blog, local:true do |f| %>
+  <%=form_with model: blog, local:true do |f| %>
   <h4>画像</h4>
   <%= f.attachment_field :image %>
-  <h4>場面</h4>
+  <h4 class="mt-2">場面</h4>
   <%= f.select :scene, {'誕生日': "誕生日",'記念日': "記念日",'お祝い': "お祝い",'サプライズ': "サプライズ",'自分へのご褒美': "自分へのご褒美",'プロポーズ': "プロポーズ",'クリスマス': "クリスマス",'その他': "その他"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, } %>
-  <h4>相手</h4>
+  <h4 class="mt-2">相手</h4>
   <%= f.select :partner, {'家族・親戚': "家族・親戚",'彼氏・彼女': "彼氏・彼女",'友達・知人': "友達・知人",'ビジネス・目上の人': "ビジネス・目上の人",'その他': "その他"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, } %>
-  <h4>ジャンル</h4>
+  <h4 class="mt-2">ジャンル</h4>
   <%= f.collection_select(:genre_id, @genres, :id, :name )%>
-  <h4>製品名</h4>
-  <%=f.text_field :name %>
-  <h4>価格</h4>
+  <h4 class="mt-2">製品名</h4>
+  <%=f.text_field :name, size: "44x13" %>
+  <h4 class="mt-2">価格</h4>
   <%= f.select :price, {'¥1,000': "¥1,000",'¥2,000': "¥2,000",'¥3,000': "¥3,000",'¥4,000': "¥4,000",'¥5,000': "¥5,000",'¥10,000': "¥10,000",'¥50,000': "¥50,000",'その他': "その他"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, } %>
+
   <h4>タイトル</h4>
   <%=f.text_field :title %>
-  <h4>内容</h4>
-  <%=f.text_area :body %>
+  <h4 class="mt-2">内容</h4>
+  <%=f.text_area :body, size: "60x13" %><br>
 
   <%=f.submit "post" %>
- <% end %>
+  <% end %>
 
+</div>

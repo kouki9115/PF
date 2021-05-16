@@ -1,6 +1,6 @@
-<div class ="mt-5 ml-5">
+<div class ="mt-5 ml-5 text-center">
 
-<h2>Sign up</h2>
+<h1 class="mb-3">新規会員登録</h1>
 
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
