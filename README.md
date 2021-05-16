@@ -60,7 +60,7 @@ ER図
 - IDE：Cloud9
 
 ## 使用素材
-  pixabay https://pixabay.com/ja/
+  pixabay https://pixabay.com/ja/<br>
   fotor   https://www.fotor.com/jp/
 
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。<br>
