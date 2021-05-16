@@ -53,6 +53,12 @@ class BlogsController < ApplicationController
     @results = @q.result.page(params[:page]).reverse_order
   end
 
+  def sort #sort機能　params受け取り
+   @params =  params[:scene]
+   @blogs = Blog.where(scene: @params)
+
+  end
+
   private
   def  blog_params
   params.require(:blog).permit(:image,:scene,:partner,:name,:price,:title,:body,:genre_id)
@@ -61,11 +67,6 @@ class BlogsController < ApplicationController
 
   def set_q
     @q = Blog.ransack(params[:q])
-  end
-
-
-  def sort
-   @blogs=Blog.all
   end
 
 end
