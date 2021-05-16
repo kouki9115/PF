@@ -54,12 +54,10 @@
 
         <% elsif @user == current_user %>
          <%= link_to "編集", edit_user_path(@user), class: "btn btn-outline-dark" %>
+         <%= link_to "退会", users_withdrawal_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-dark" %>
          <%#= link_to "削除", user_path(@user), method: :delete%>
         <% end %>
 
-        <% if  @user.id == current_user.id %>
-         <%= link_to "退会", users_withdrawal_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-dark" %>
-        <% end %>
 
         <% if current_user.id == User.find_by(id:1).id %>
          <%=link_to "genre", genres_path, class: "btn btn-outline-dark" %>
