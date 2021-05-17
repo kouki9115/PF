@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-  attachment :image #destroy: false
+  attachment :image # destroy: false
   attachment :profile_image, destroy: false
 
   belongs_to :genre
