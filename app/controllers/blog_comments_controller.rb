@@ -1,5 +1,4 @@
 class BlogCommentsController < ApplicationController
-
   def create
     blog = Blog.find(params[:blog_id])
     comment = current_user.blog_comments.new(blog_comment_params)
@@ -18,5 +17,4 @@ class BlogCommentsController < ApplicationController
   def blog_comment_params
     params.require(:blog_comment).permit(:comment)
   end
-
 end
