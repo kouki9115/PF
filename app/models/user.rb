@@ -5,14 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :profile_image
-  attachment :image, destroy: falses
+  attachment :image, destroy: false
 
   has_many :blogs, dependent: :destroy
   has_many :blog_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
-  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
+  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  # フォロー取得
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  # フォロワー取得
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
 
