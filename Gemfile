@@ -79,6 +79,8 @@ gem 'pry-byebug', group: :development
 
 gem 'ransack'
 
+gem 'impressionist', '~>1.6.1' #rails5,version必須
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
