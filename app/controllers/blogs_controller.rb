@@ -9,8 +9,8 @@ class BlogsController < ApplicationController
       left_joins(:favorites).
       group('blogs.id').
       order('favorites DESC').
-      limit(5)
-  end #ランキング
+      limit(5) #ランキング
+  end
 
   def new
     @blog = Blog.new
