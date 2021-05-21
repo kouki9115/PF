@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about'
 
+  resources :contacts, only: [:new, :create]
+
   resources :blogs do
     collection do
       get 'search'

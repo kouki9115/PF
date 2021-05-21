@@ -1,0 +1,16 @@
+<div class ="containar-fluid mt-5 ml-5">
+ <h1>PF お問い合わせフォーム</h1><br>
+
+<p>この度は、お忙しい中、for you をご覧頂き、誠に有難う御座います。<br>
+皆様より頂きましたアドバイス、ご指摘を元に今後の学習やPF改善に取り組んでいきたいと思っておりますので、<br>
+ご意見ご感想等御座いましたら、是非メッセージを頂けますと幸いです。</p>
+
+<%= form_with model: @contact do |f| %>
+   <h5>名前(ニックネーム)</h5>
+   <%= f.text_field :name %><br>
+   <h5>ご意見・ご感想</h5>
+   <%= f.text_area :message, size: "60x5" %><br>
+   <%= f.submit "メッセージを送信" %>
+<% end %>
+
+</div>
