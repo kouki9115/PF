@@ -7,7 +7,7 @@ class User < ApplicationRecord
   attachment :profile_image
   attachment :image, destroy: false
 
-  is_impressionable
+  is_impressionable #トラッキング
 
   has_many :blogs, dependent: :destroy
   has_many :blog_comments, dependent: :destroy

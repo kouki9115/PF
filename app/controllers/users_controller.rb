@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    impressionist(@user)
+    impressionist(@user) #トラッキング
     @users = User.all
     @blogs = @user.blogs.all
   end
