@@ -4,6 +4,7 @@
   <div class="row">
    <div class ="col-lg-5 mt-5 ml-5">
     <p4><%=attachment_image_tag @user, :profile_image, :fill, 480, 360, format: 'jpeg', fallback: "no_image.png", size:'480x360' %></p4>
+     <h4 class ="mt-2">訪れたユーザー数(<%= @user.impressionist_count %>)</h4>
    </div>
    <div class ="col-lg-5 mt-5 ml-5">
     <h2><%=@user.name %></h2>
