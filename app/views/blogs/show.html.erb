@@ -30,13 +30,13 @@
   </div>
 
   <div class="comments mt-5 ml-5">
-   <p>コメント件数：<%= @blog.blog_comments.count %></p>
-    <h6>
+   <h6>コメント件数：<%= @blog.blog_comments.count %></h6>
      <% @blog.blog_comments.each do |blog_comment| %>
+     <h8>
      <%= blog_comment.created_at.strftime('%Y/%m/%d') %> <%= blog_comment.user.name %> <%= blog_comment.comment %>
      <% if blog_comment.user == current_user %>
-    </h6>
-    <div class="comment-delete">
+     </h8>
+     <div class="comment-delete">
       <%= link_to "削除", blog_blog_comment_path(blog_comment.blog, blog_comment), method: :delete %>
      </div>
     <% end %>
