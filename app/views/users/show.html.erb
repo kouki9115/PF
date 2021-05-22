@@ -7,8 +7,8 @@
      <h4 class ="mt-2">訪れたユーザー数(<%= @user.impressionist_count %>)</h4>
    </div>
    <div class ="col-lg-5 mt-5 ml-5">
-    <h2><%=@user.name %></h2>
-    <h2><%=@user.introduction %></h2>
+    <h2 class = "fas fa-address-card"> <%=@user.name %></h2>
+    <h4><%=@user.introduction %></h4>
 
 
     <h2><% unless @user == current_user %>
@@ -21,7 +21,7 @@
 
 
 
-    <h2>フォロー一覧 <%= @user.follower.count %>人</h2>
+    <h3>フォロー一覧 <%= @user.follower.count %>人</h3>
         <% @user.following_user.where.not(id: current_user.id).each do |user| %>
      <p>
       <%=attachment_image_tag user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.png", size:'30x30'  %>
@@ -35,7 +35,7 @@
      </p>
         <% end %>
 
-    <h2>フォロワー一覧　<%= @user.followed.count %>人</h2>
+    <h3>フォロワー一覧　<%= @user.followed.count %>人</h3>
       <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
      <p>
       <%=attachment_image_tag user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.png", size:'30x30'  %>
