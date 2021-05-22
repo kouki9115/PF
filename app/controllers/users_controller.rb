@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_q, only: [:index, :search]
-  impressionist :actions=>[:show]
+  impressionist :actions => [:show]
 
   def index
     @users = @q.result.page(params[:page]).reverse_order
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    impressionist(@user) #トラッキング
+    impressionist(@user) # トラッキング
     @users = User.all
     @blogs = @user.blogs.all
   end
