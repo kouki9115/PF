@@ -1,4 +1,5 @@
 <div class ="containar-fluid mt-5 ml-5">
+
  <h1>PF お問い合わせフォーム</h1><br>
 
 <p>この度は、お忙しい中、for you をご覧頂き、誠に有難う御座います。<br>
@@ -12,5 +13,7 @@
    <%= f.text_area :message, size: "60x5" %><br>
    <%= f.submit "メッセージを送信" %>
 <% end %>
+
+　<h6 class ="text-danger"><%= flash[:notice] %></h6>
 
 </div>

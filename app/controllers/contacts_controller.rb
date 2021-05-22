@@ -7,7 +7,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to blogs_path
+      redirect_to new_contact_path, notice: '※メッセージが送信されました'
+
     else
       redirect_to new_contact_path
     end
