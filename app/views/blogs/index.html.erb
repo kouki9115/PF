@@ -30,19 +30,19 @@
    </div>
   </div>
 
-  <div class ="mt-2 ml-5"><%# sort機能　params受け渡し %>
-   <h6><%=link_to sort_blogs_path(scene: "誕生日") do %>
+  <div class ="fx-container mt-2 ml-5"><!-- sort機能　params受け渡し -->
+   <div><%=link_to sort_blogs_path(scene: "誕生日") do %>
         <%= image_tag "birthday3.jpg",width:"45%",height:"250" %>
        <% end %>
 
        <%=link_to  sort_blogs_path(scene: "記念日") do %>
         <%= image_tag "hands.jpg",width:"45%",height:"250" %>
        <% end %>
-   </h6>
+   </div>
   </div>
 
-  <div class="row">
-   <div class ="col-lg-10">
+  <div class="d-flex">
+   <div>
 
 
   <div class ="mt-5 ml-5">
@@ -143,7 +143,7 @@
 
  </div>
 
- <div class ="col-lg-2 mt-5">
+ <div class ="mt-5 mr-5">
 
   <h4 class = "border-bottom border-dark fas fa-search-plus">シーン検索</h4>
 
