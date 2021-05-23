@@ -33,7 +33,11 @@
  <div class ="col-lg-5 mt-5 ml-5">
   <h1 class = "mb-3">初めての方</h1>
 
-  <%= link_to "Signup", new_user_registration_path,class: 'fas fa-user-plus' %>
+  <%= link_to "新規登録", new_user_registration_path,class: 'fas fa-user-plus' %>
+
+  <h1 class = "mt-5 mb-3">ゲストログイン</h1>
+
+  <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post,class: 'fas fa-sign-in-alt' %>
 
  </div>
 
