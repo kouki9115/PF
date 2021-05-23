@@ -8,13 +8,13 @@
        <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg', fallback: "no_image.png", size:'180x140' %>
        <% end %></p>
 
-  <div class="row">
-   <div class="col-8">
+  <div class="d-flex justify-content-between">
+   <div>
      <%=blog.name %><br>
      <%=blog.genre.name %><br>
      <%=blog.price %></p>
    </div>
-   <div class="col-4">
+   <div>
      <div class="favorite-btn"><%= render "favorites/favorite-btn", blog: blog %></div>
     </div>
    </div>

@@ -1,8 +1,8 @@
 <main>
 
  <div class="containar-fluid">
-  <div class="row">
-   <div class ="col-lg-7 mt-5 ml-5">
+  <div class="d-flex justify-content-between">
+   <div class ="mt-5 ml-5">
     <h1><% if current_user.name == User.find_by(name: "ゲスト").name %>
          <h6>★ゲストログインの為、投稿機能は使用できません</h6>
         <% else %>
@@ -12,7 +12,7 @@
 
    </div>
 
-   <div class ="col-lg-4 mt-4 ">
+   <div class ="mt-4 mr-5">
      <%= search_form_for @q, url: search_blogs_path do |f| %>
      <%#= f.label :scene_or_partner_or_name_or_price_or_title_cont, '検索' %>
      <%= f.search_field :scene_or_partner_or_name_or_price_or_title_cont %>
@@ -62,13 +62,13 @@
        <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg', fallback: "no_image.png", size:'180x140' %>
        <% end %></p>
 
-  <div class="row">
-   <div class="col-8">
+  <div class="d-flex justify-content-between">
+   <div>
      <%=blog.name %><br>
      <%=blog.genre.name %><br>
      <%=blog.price %>
    </div>
-   <div class="col-4">
+   <div>
     <div class="favorite-btn"><%= render "favorites/favorite-btn", blog: blog %></div>
    </div>
   </div>
@@ -91,13 +91,13 @@
        <%=attachment_image_tag blog, :image, :fill, 180, 140, format: 'jpeg', fallback: "no_image.png", size:'180x140' %>
        <% end %></p>
 
-  <div class="row">
-   <div class="col-8">
+  <div class="d-flex justify-content-between">
+   <div>
      <%=blog.name %><br>
      <%=blog.genre.name %><br>
      <%=blog.price %>
    </div>
-   <div class="col-4">
+   <div>
     <div class="favorite-btn"><%= render "favorites/favorite-btn", blog: blog %></div>
    </div>
   </div>
