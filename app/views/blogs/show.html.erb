@@ -5,7 +5,7 @@
     <p4><%=attachment_image_tag @blog, :image, :fill, 480, 360, format: 'jpeg', fallback: "no_image.png", size:'480x360' %></p4>
    </div>
    <div class ="col-lg-5 mt-5 ml-5 mr-5">
-    <h2><%= @blog.created_at.strftime('%Y/%m/%d') %></h2>
+    <h2 class ="fas fa-calendar-day"> <%= @blog.created_at.strftime('%Y/%m/%d') %></h2>
     <h2><%=@blog.scene %></h2>
     <h2><%=@blog.partner %></h2>
     <h2><%=@blog.genre.name %></h2>
