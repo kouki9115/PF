@@ -59,9 +59,9 @@
         <% end %>
 
         <% if current_user.id == User.find_by(id:1).id %>
-         <%=link_to "genre", genres_path, class: "btn btn-outline-dark" %>
+         <%=link_to "ジャンル", genres_path, class: "btn btn-outline-dark" %>
         <% elsif current_user.id == User.find_by(id:6).id %> <!-- PF用adminログイン追加分 本来は重複の為、記述を削除 -->
-         <%=link_to "genre", genres_path, class: "btn btn-outline-dark" %>
+         <%=link_to "ジャンル", genres_path, class: "btn btn-outline-dark" %>
         <% end %>
     </h4>
 
