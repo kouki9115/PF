@@ -25,7 +25,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    # 後程対応予定
   end
 
   def search
