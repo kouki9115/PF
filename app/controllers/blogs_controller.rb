@@ -3,12 +3,12 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = @q.result.page(params[:page]).reverse_order
-    @blogs_new = Blog.all.order(created_at: "DESC").limit(5) # 新着
-    @blogs_ran = Blog.select('blogs.*', 'count(favorites.id) AS favorites').
+    @blogs_new = Blog.all.order(created_at: "DESC").limit(5)
+    @blogs_ranking = Blog.select('blogs.*', 'count(favorites.id) AS favorites').
       left_joins(:favorites).
       group('blogs.id').
       order('favorites DESC').
-      limit(5) # ランキング
+      limit(5)
   end
 
   def new
