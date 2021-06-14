@@ -46,9 +46,10 @@ ER図
 <https://docs.google.com/spreadsheets/d/1VEz-5fuBCYwVYhY84xhQQ7hXJ9BZ4tzxEQep0yNJoyo/edit#gid=0>
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
+- CSSフレームワーク：Bootstrap
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
