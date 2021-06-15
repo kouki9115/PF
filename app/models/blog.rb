@@ -12,4 +12,12 @@ class Blog < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.ranking
+      Blog.select('blogs.*', 'count(favorites.id) AS favorites').
+      left_joins(:favorites).
+      group('blogs.id').
+      order('favorites DESC').
+      limit(5)
+  end
 end
