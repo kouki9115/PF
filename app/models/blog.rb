@@ -14,7 +14,7 @@ class Blog < ApplicationRecord
   end
 
   def self.ranking
-      Blog.select('blogs.*', 'count(favorites.id) AS favorites').
+    Blog.select('blogs.*', 'count(favorites.id) AS favorites').
       left_joins(:favorites).
       group('blogs.id').
       order('favorites DESC').
